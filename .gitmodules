@@ -1,0 +1,6 @@
+[submodule "encoder"]
+	path = encoder
+	url = https://github.com/0xPIT/encoder.git
+[submodule "TimerOne"]
+	path = TimerOne
+	url = https://github.com/PaulStoffregen/TimerOne.git

@@ -52,8 +52,8 @@ void setup() {
   encoder = new ClickEncoder(enc2, enc1, enc2, 4);
   encoder->setAccelerationEnabled(true);
 
-  Timer1.initialize(1000);
-  Timer1.attachInterrupt(timerIsr);   
+  TimerOne.initialize(1000);
+  TimerOne.attachInterrupt(timerIsr);   
   last = -1;  
   
   // setup temperature measurement
