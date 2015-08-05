@@ -1,6 +1,7 @@
-#include <LiquidCrystal.h>
 #include <ClickEncoder.h>
+#include <LiquidCrystal.h>
 #include <TimerOne.h>
+#include <Wire.h>
 
 // defines how many temperature samples should be taken and averaged
 #define temp_samples_to_take 4
@@ -15,12 +16,12 @@ const float HYSTERESIS = 0.5;
 int heater = 9;
 
 // pins for the encoder
-int enc1 = 6;
-int enc2 = 7;
-int enc3 = 8;
+int enc1 = 10;
+int enc2 = 11;
+int enc3 = 12;
 
 // pin of temperature sensor
-int temp_sensor = 0;
+int temp_sensor = 4;
 
 // variables
 int temp_reading;
@@ -34,7 +35,7 @@ unsigned long lastrun;
 bool heat = false;
 
 // initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(7, 6, 2, 5, 3, 4);
 
 // Rotary encoder
 ClickEncoder *encoder;
@@ -52,8 +53,8 @@ void setup() {
   encoder = new ClickEncoder(enc2, enc1, enc2, 4);
   encoder->setAccelerationEnabled(true);
 
-  TimerOne.initialize(1000);
-  TimerOne.attachInterrupt(timerIsr);   
+  Timer1.initialize(1000);
+  Timer1.attachInterrupt(timerIsr);   
   last = -1;  
   
   // setup temperature measurement
